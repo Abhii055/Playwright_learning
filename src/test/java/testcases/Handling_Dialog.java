@@ -21,7 +21,7 @@ public class Handling_Dialog {
 		BrowserContext context = browser.newContext(new Browser.NewContextOptions().setViewportSize(null));//this is used to maximize the window no direct methods like maximize in selenium
 		
 		Page page= context.newPage(); // new page opens up
-		page.navigate("https://mail.rediff.com/cgi-bin/login.cgi");// navigate to specific URL
+		page.navigate("https://mail.rediff.com/cgi-bin/login.cgi");
 		page.onDialog(dialog ->{
 			try {
 				Thread.sleep(3000);
@@ -34,6 +34,10 @@ public class Handling_Dialog {
 		}
 		);
 			page.locator("input[Type='submit'][title='Sign in']").click();
+			Thread.sleep(3000);
+			page.close();
+			browser.close();
+			pw.close();
 	
 	}
 	
